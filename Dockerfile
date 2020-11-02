@@ -8,7 +8,7 @@ RUN apk add --no-cache \
   curl \
   jq
 
-RUN apt add python3-pip git
+RUN apk add python3-pip git
 
 RUN pip3 install --upgrade bump2version
 
