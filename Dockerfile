@@ -8,9 +8,15 @@ RUN apk add --no-cache \
   curl \
   jq
 
-RUN apk add python3-pip git
+RUN apk add --update-cache \
+    python \
+    python-dev \
+    py-pip \
+    build-base \
+  && pip install virtualenv \
+  && rm -rf /var/cache/apk/*
 
-RUN pip3 install --upgrade bump2version
+RUN pip install --upgrade bump2version
 
 # Copies your code file  repository to the filesystem
 COPY entrypoint.sh /entrypoint.sh
