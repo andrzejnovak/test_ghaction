@@ -8,6 +8,10 @@ RUN apk add --no-cache \
   curl \
   jq
 
+RUN apt-get -y update && apt-get -y install python3-pip git
+
+RUN pip3 install --upgrade bump2version
+
 # Copies your code file  repository to the filesystem
 COPY entrypoint.sh /entrypoint.sh
 
