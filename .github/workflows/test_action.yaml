@@ -6,7 +6,7 @@ jobs:
     name: We test it locally with act
     steps:
       - name: Get Pokemon name
-        uses: andrzejnovak/test_ghaction
+        uses: andrzejnovak/test_ghaction@master
         id: pokemon
         with:
           pokemon_id: 150
