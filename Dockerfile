@@ -14,7 +14,6 @@ RUN apk add --update-cache \
     python3-dev \
     py3-pip \
     build-base \
-  && pip install virtualenv \
   && rm -rf /var/cache/apk/*
 
 RUN pip install --upgrade bump2version
