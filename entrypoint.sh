@@ -8,12 +8,13 @@ echo "::set-output name=pokemon_name::$pokemon_name"
 
 
 echo "BLABLA"
-
+git branch
+git status
+git log --pretty=oneline --abbrev-commit |grep -v \|
 OLD_TAG=$(git describe --tags --abbrev=0)
 echo "OLD_TAG=${OLD_TAG}" >> $GITHUB_ENV
 bump2version $BV_PART --message "Bump version: {current_version} → {new_version}
-
-Triggered by #${PR_NUMBER} via GitHub Actions."
+                                 Triggered by #${PR_NUMBER} via GitHub Actions."
 NEW_TAG=$(git describe --tags --abbrev=0)
 echo "NEW_TAG=${NEW_TAG}" >> $GITHUB_ENV
 git tag -n99 -l $NEW_TAG
